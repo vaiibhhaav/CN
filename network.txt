@@ -1,0 +1,19 @@
+Ping www.google.com
+
+tracepath  www.google.com
+
+Nslookup google.com
+
+Netstat -lu / netstat -lt
+
+Arp -v / -n / -a
+
+rarp
+
+Ip -s link/ ip
+
+ifconfig
+
+Dig geeksforgeeks.org
+
+route

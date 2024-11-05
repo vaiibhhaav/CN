@@ -1,0 +1,14 @@
+INSTALLATION PROCESS OF TELNET -> 
+    sudo apt install telnetd -y
+
+WORKING --> 
+    1. telnet <ip_of_other_computer> <port -- usually used 23>
+    2. top --> {It is to view all the working/running programs on the given ip}
+    3. kill <PID>
+    4. 
+    5. 
+    6. 
+    7. 
+    8. 
+    9. 
+    10. 

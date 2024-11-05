@@ -1,0 +1,11 @@
+COMMANDS TO INSTALL NMAP
+    1. sudo apt-get install nmap
+    2. nmap <hostname/ip> --> INITIALIZE
+    3. nmap -p 1-80 <IP> --> DEFINES RANGE FOR IP
+    4. sudo nmap -sN <IP> --> IP SCAN
+    5. sudo nmap -sA <IP> --> DETECT FIREWALL SETTINGS
+    6. sudo nmap -sS <IP> --> TCP SYN SCAN
+    7. nmap -A <IP> --> -A INDICATES AGRESSIVENESS
+    8. nmap -p T:80 <IP> --> T:80 COMMAND   
+    9. nmap U:53 <IP>
+    10. nmap -v -A <IP>

@@ -1,0 +1,79 @@
+FTP Commands to Perform
+1. sudo apt update
+2. sudo apt install vsftpd
+3. sudo service vsftpd status
+4. sudo systemctl start vsftpd
+5. sudo nano /etc/vsftpd.conf
+    a. # Allow anomynous FTP? (Disabled by Default)
+    anomynous_enable = YES
+
+    b. # Uncomment this to allow local users to log in
+    local_enable = YES
+
+    c. # Uncomment this to enable any form of FTP write command
+    write_enable = YES
+
+    d. ## ADD THIS COMMANDS AT THE END
+    user_sub_token = $User
+    local_root = /home/$USER/ftp
+    pasv_min_port = 10000
+    pasv_max_port = 10100
+    userlist_enable = YES
+    userlist_file = /etc/vsftpd.userlist
+    userlist_deny = NO
+
+    e. CTRL + X to exit and Y to save
+
+    f. may or maybe
+        sudo ufw allow from any to any port 20,21,10000:10100 proto tcp
+        -> Directly adduser and password
+   
+6. sudo systemctl restart vsftpd
+7. sudo ufw allow ftp
+
+Create User
+8. sudo useradd -m testuser OR sudo adduser -m testuser
+Set Password
+9. sudo passwd testuser
+
+username and password should be same
+
+
+10. Create file for the USER created
+    a. sudo mkdir /home/USERNAME/ftp
+    b. sudo chown nobody:nogroup /home/USERNAME/ftp
+    c. sudo chmod a-w /home/USERNAME/ftp
+    d. sudo mkdir /home/USERNAME/ftp/upload
+    e. sudo chown USERNAME:USERNAME /home/USERNAME/ftp/upload
+    f. echo "My FTP Server" | sudo tee /home/USERNAME/ftp/upload/demo.txt
+
+    g. CHECK FILE --
+        Files -> Other Locations -> computer -> home -> USERNAME -> check_file_created
+
+    h. sudo ls -la /home/USERNAME/ftp
+    i. echo "USERNAME" | sudo tee -a /etc/vsftpd.userlist
+    j. sudo systemctl restart vsftpd
+    k. ifconfig 
+        ens33 -> inet ip_address copy
+    
+
+
+11. sudo ftp your-server-name
+To get your-server-name use command and past it there--> hostname
+ 
+12. Perform Filezilla Process
+
+
+
+
+Filezilla Application Download
+1. lsb_release -a
+2. apt-get update
+3. apt-get install filezilla -y
+4. Search Filezilla in Menu
+
+a. Open Filezilla
+    Host -> IP Copied
+    Username -> Username Created
+    Password -> Password Created
+    Quick Connect -> Check Output
